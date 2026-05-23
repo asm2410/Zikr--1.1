@@ -493,6 +493,23 @@ const formatZikrArabicDisplayLines = (text: string): string[] => {
   return prepared.split('\n').map((line) => line.trim()).filter(Boolean);
 };
 
+const getAdaptiveFontSize = (text: string, baseFontSize: number): number => {
+  const lines = formatZikrArabicDisplayLines(text);
+  const totalLength = lines.reduce((sum, line) => sum + line.length, 0);
+  const lineCount = lines.length;
+
+  // Short text (<= 50 chars, <= 2 lines): full size
+  // Medium text (51-150 chars or 3-4 lines): 90% size
+  // Long text (> 150 chars or > 4 lines): 80% size
+  if (totalLength <= 50 && lineCount <= 2) {
+    return baseFontSize;
+  } else if (totalLength <= 150 && lineCount <= 4) {
+    return baseFontSize * 0.9;
+  } else {
+    return baseFontSize * 0.78;
+  }
+};
+
 const wrapCanvasArabicLine = (
   ctx: CanvasRenderingContext2D,
   text: string,
@@ -3154,6 +3171,24 @@ function App() {
           })()}
 
           {/* Main Zikr Box */}
+          {/* Counter above the box */}
+          <div className="flex justify-center mb-3">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: colors.card }}>
+              <p
+                className={`font-bold transition-all duration-300 text-lg ${showCelebration ? 'scale-125' : ''}`}
+                style={{ color: showCelebration ? colors.accent : colors.textLight }}
+              >
+                {count}
+              </p>
+              {targetCount !== null && (
+                <p className="text-xs" style={{ color: colors.textLight }}>/ {targetCount}</p>
+              )}
+              {targetCount === null && count >= 100 && (
+                <p className="text-xs" style={{ color: colors.textLight }}>∞</p>
+              )}
+            </div>
+          </div>
+
           <ElectricBorder
             color={colors.accent}
             borderRadius={24}
@@ -3174,30 +3209,12 @@ function App() {
             onMouseDown={startZikrLongPress}
             onMouseUp={endZikrLongPress}
             onMouseLeave={endZikrLongPress}
-            className="p-8 min-h-[400px] flex flex-col justify-center transition-all duration-300 cursor-pointer active:scale-[0.99] relative"
+            className="p-8 flex flex-col justify-center transition-all duration-300 cursor-pointer active:scale-[0.99] relative"
             style={{
               backgroundColor: colors.card,
               boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.06)'
             }}
           >
-            {/* Counter inside the box - smaller and positioned */}
-            <div className="absolute top-4 right-4">
-              <div className="flex items-center gap-2">
-                <p
-                  className={`font-bold transition-all duration-300 text-lg ${showCelebration ? 'scale-125' : ''}`}
-                  style={{ color: showCelebration ? colors.accent : colors.textLight }}
-                >
-                  {count}
-                </p>
-                {targetCount !== null && (
-                  <p className="text-xs" style={{ color: colors.textLight }}>/ {targetCount}</p>
-                )}
-                {targetCount === null && count >= 100 && (
-                  <p className="text-xs" style={{ color: colors.textLight }}>∞</p>
-                )}
-              </div>
-            </div>
-            
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -3240,7 +3257,7 @@ function App() {
                         color: colors.text,
                         fontFamily: "'Cairo', 'Segoe UI', sans-serif",
                         lineHeight: '1.8',
-                        fontSize: `${Math.round(fontSize * 0.42)}px`,
+                        fontSize: `${Math.round(getAdaptiveFontSize(currentZikr.arabic, fontSize) * 0.42)}px`,
                         transition: 'font-size 0.3s ease',
                         direction: 'rtl',
                         textAlign: 'center'
