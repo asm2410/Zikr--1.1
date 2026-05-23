@@ -2430,9 +2430,12 @@ function App() {
                               <div className="flex items-start justify-between gap-3">
                                 <p
                                   className="font-semibold mb-2 text-lg flex-1"
+                                  dir="rtl"
                                   style={{
                                     color: colors.text,
-                                    fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                                    fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                                    direction: 'rtl',
+                                    textAlign: 'right'
                                   }}
                                 >
                                   {zikr.arabic}
@@ -2508,9 +2511,12 @@ function App() {
                     >
                       <p
                         className="text-sm font-semibold"
+                        dir="rtl"
                         style={{
                           color: colors.text,
-                          fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                          fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                          direction: 'rtl',
+                          textAlign: 'right'
                         }}
                       >
                         {zikr.arabic}
@@ -2586,9 +2592,12 @@ function App() {
                               >
                                 <p
                                   className="text-sm font-semibold"
+                                  dir="rtl"
                                   style={{
                                     color: colors.text,
-                                    fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                                    fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                                    direction: 'rtl',
+                                    textAlign: 'right'
                                   }}
                                 >
                                   {zikr.arabic}
@@ -2670,9 +2679,12 @@ function App() {
                     <div className="flex items-start justify-between gap-3">
                       <p
                         className="font-semibold mb-2 text-lg flex-1"
+                        dir="rtl"
                         style={{
                           color: colors.text,
-                          fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                          fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                          direction: 'rtl',
+                          textAlign: 'right'
                         }}
                       >
                         {zikr.arabic}
@@ -3306,10 +3318,13 @@ function App() {
                   >
                     <p
                       className="font-semibold mb-2"
+                      dir="rtl"
                       style={{
                         color: colors.text,
                         fontSize: '18px',
-                        fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                        fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                        direction: 'rtl',
+                        textAlign: 'right'
                       }}
                     >
                       {zikr.arabic}
@@ -3346,9 +3361,12 @@ function App() {
                     >
                       <p
                         className="text-sm font-semibold"
+                        dir="rtl"
                         style={{
                           color: colors.text,
-                          fontFamily: "'Cairo', 'Segoe UI', sans-serif"
+                          fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                          direction: 'rtl',
+                          textAlign: 'right'
                         }}
                       >
                         {zikr.arabic}
