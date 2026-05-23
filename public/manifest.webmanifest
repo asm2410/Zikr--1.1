@@ -1,0 +1,17 @@
+{
+  "name": "Azkar Zikr",
+  "short_name": "Zikr",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#6d4bd8",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
