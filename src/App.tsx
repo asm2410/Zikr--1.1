@@ -3230,28 +3230,30 @@ function App() {
             </button>
 
             <div className={`transition-opacity duration-200 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
-              <div className="text-center mb-6 mt-4 space-y-4" dir="rtl" style={{ direction: 'rtl' }}>
-                {formatZikrArabicDisplayLines(currentZikr.arabic).map((line, index) => (
-                  <p
-                    key={`${line.slice(0, 12)}-${index}`}
-                    className={`leading-relaxed font-semibold ${isSacredArabicLine(line) ? 'whitespace-nowrap' : ''}`}
-                    style={{
-                      color: colors.text,
-                      fontFamily: "'Cairo', 'Segoe UI', sans-serif",
-                      lineHeight: '1.8',
-                      fontSize: `${Math.round(fontSize * 0.42)}px`,
-                      transition: 'font-size 0.3s ease',
-                      direction: 'rtl',
-                      textAlign: 'center'
-                    }}
-                  >
-                    {line}
-                  </p>
-                ))}
-              </div>
+              {language === 'ar' && (
+                <div className="text-center mb-6 mt-4 space-y-4" dir="rtl" style={{ direction: 'rtl' }}>
+                  {formatZikrArabicDisplayLines(currentZikr.arabic).map((line, index) => (
+                    <p
+                      key={`${line.slice(0, 12)}-${index}`}
+                      className={`leading-relaxed font-semibold ${isSacredArabicLine(line) ? 'whitespace-nowrap' : ''}`}
+                      style={{
+                        color: colors.text,
+                        fontFamily: "'Cairo', 'Segoe UI', sans-serif",
+                        lineHeight: '1.8',
+                        fontSize: `${Math.round(fontSize * 0.42)}px`,
+                        transition: 'font-size 0.3s ease',
+                        direction: 'rtl',
+                        textAlign: 'center'
+                      }}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+              )}
 
               <div className="space-y-3 text-center">
-                {showTransliteration && currentZikr.transliteration && (
+                {language === 'en' && currentZikr.transliteration && (
                   <p
                     className="text-lg italic"
                     style={{ color: colors.textLight }}
@@ -3259,7 +3261,7 @@ function App() {
                     {currentZikr.transliteration}
                   </p>
                 )}
-                {showTranslation && currentZikr.translation && (
+                {language === 'en' && currentZikr.translation && (
                   <p
                     className="text-base"
                     style={{ color: colors.textLight }}
