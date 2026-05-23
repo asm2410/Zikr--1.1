@@ -3171,6 +3171,24 @@ function App() {
           })()}
 
           {/* Main Zikr Box */}
+          {/* Counter above the box */}
+          <div className="flex justify-center mb-3">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: colors.card }}>
+              <p
+                className={`font-bold transition-all duration-300 text-lg ${showCelebration ? 'scale-125' : ''}`}
+                style={{ color: showCelebration ? colors.accent : colors.textLight }}
+              >
+                {count}
+              </p>
+              {targetCount !== null && (
+                <p className="text-xs" style={{ color: colors.textLight }}>/ {targetCount}</p>
+              )}
+              {targetCount === null && count >= 100 && (
+                <p className="text-xs" style={{ color: colors.textLight }}>∞</p>
+              )}
+            </div>
+          </div>
+
           <ElectricBorder
             color={colors.accent}
             borderRadius={24}
@@ -3230,7 +3248,7 @@ function App() {
 
             <div className={`transition-opacity duration-200 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
               {language === 'ar' && (
-                <div className="text-center mb-6 mt-4 space-y-4" dir="rtl" style={{ direction: 'rtl' }}>
+                <div className="mb-6 mt-4 space-y-4" dir="rtl" style={{ direction: 'rtl' }}>
                   {formatZikrArabicDisplayLines(currentZikr.arabic).map((line, index) => (
                     <p
                       key={`${line.slice(0, 12)}-${index}`}
@@ -3242,7 +3260,7 @@ function App() {
                         fontSize: `${Math.round(getAdaptiveFontSize(currentZikr.arabic, fontSize) * 0.42)}px`,
                         transition: 'font-size 0.3s ease',
                         direction: 'rtl',
-                        textAlign: 'center'
+                        textAlign: 'right'
                       }}
                     >
                       {line}
@@ -3274,24 +3292,6 @@ function App() {
                   {t.holdForHadith}
                 </p>
               )}
-            </div>
-
-            {/* Counter inside the card below the zikr */}
-            <div className="flex justify-center mt-6">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: colors.background }}>
-                <p
-                  className={`font-bold transition-all duration-300 text-lg ${showCelebration ? 'scale-125' : ''}`}
-                  style={{ color: showCelebration ? colors.accent : colors.textLight }}
-                >
-                  {count}
-                </p>
-                {targetCount !== null && (
-                  <p className="text-xs" style={{ color: colors.textLight }}>/ {targetCount}</p>
-                )}
-                {targetCount === null && count >= 100 && (
-                  <p className="text-xs" style={{ color: colors.textLight }}>∞</p>
-                )}
-              </div>
             </div>
 
             {showCelebration && (
