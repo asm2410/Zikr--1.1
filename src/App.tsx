@@ -734,13 +734,14 @@ const drawExportMainZikrBlock = (
   ctx.lineWidth = 2.5;
   ctx.stroke();
 
+  // Draw counter badge above the block
   if (typeof repeatCount === 'number' && repeatCount > 1) {
     const badge = `×${repeatCount}`;
     ctx.font = `700 38px ${ZIKR_EXPORT_ARABIC_FONT}`;
     const badgeW = ctx.measureText(badge).width + 44;
     const badgeH = 56;
-    const badgeX = blockX + blockW - badgeW - 16;
-    const badgeY = blockY + 16;
+    const badgeX = blockX + blockW / 2 - badgeW / 2;
+    const badgeY = blockY - badgeH - 16;
     roundRectPath(ctx, badgeX, badgeY, badgeW, badgeH, 12);
     ctx.fillStyle = accent;
     ctx.fill();
@@ -753,14 +754,15 @@ const drawExportMainZikrBlock = (
 
   ctx.save();
   ctx.direction = 'rtl';
-  ctx.textAlign = 'center';
+  ctx.textAlign = 'right';
   ctx.textBaseline = 'middle';
   ctx.fillStyle = isDark ? (textColor ?? '#E6E1E5') : '#121212';
   ctx.font = `700 ${fontSize}px ${ZIKR_EXPORT_ARABIC_FONT}`;
   const textBlockH = lines.length * lineHeight;
   const zikrStartY = blockY + (blockH - textBlockH) / 2 + lineHeight / 2;
+  const zikrX = blockX + blockW - 44;
   lines.forEach((textLine, index) => {
-    ctx.fillText(textLine, blockX + blockW / 2, zikrStartY + index * lineHeight);
+    ctx.fillText(textLine, zikrX, zikrStartY + index * lineHeight);
   });
   ctx.restore();
 };
