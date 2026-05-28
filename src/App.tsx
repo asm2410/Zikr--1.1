@@ -666,27 +666,28 @@ const drawExportCornerSection = (
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(x - boxPadX + 14, y - boxPadY + 12);
-  ctx.lineTo(x - boxPadX + 14, y - boxPadY + boxH - 12);
+  ctx.moveTo(x - boxPadX + boxW - 14, y - boxPadY + 12);
+  ctx.lineTo(x - boxPadX + boxW - 14, y - boxPadY + boxH - 12);
   ctx.strokeStyle = accent;
   ctx.lineWidth = 4;
   ctx.stroke();
 
+  const rightX = x + maxWidth;
   ctx.direction = 'rtl';
-  ctx.textAlign = 'left';
+  ctx.textAlign = 'right';
   ctx.textBaseline = 'top';
 
   ctx.font = `700 ${titleSize}px ${ZIKR_EXPORT_ARABIC_FONT}`;
   ctx.fillStyle = accent;
-  ctx.fillText(title, x, y);
+  ctx.fillText(title, rightX, y);
 
   const underlineY = y + titleSize * 1.15;
   const titleW = ctx.measureText(title).width;
   ctx.strokeStyle = rgbaFromHex(accent, 0.35);
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.moveTo(x, underlineY);
-  ctx.lineTo(x + Math.min(titleW, maxWidth), underlineY);
+  ctx.moveTo(rightX - Math.min(titleW, maxWidth), underlineY);
+  ctx.lineTo(rightX, underlineY);
   ctx.stroke();
 
   let cursorY = y + titleSize * 1.42;
@@ -695,7 +696,7 @@ const drawExportCornerSection = (
   const lines = wrapCanvasArabicText(ctx, trimmed, maxWidth);
   const lineHeight = bodySize * 1.55;
   for (const textLine of lines) {
-    ctx.fillText(textLine, x, cursorY);
+    ctx.fillText(textLine, rightX, cursorY);
     cursorY += lineHeight;
   }
 
