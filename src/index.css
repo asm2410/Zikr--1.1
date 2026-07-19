@@ -1,22 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
-
-@font-face {
-  font-family: 'MadinetAlBat';
-  src: url('/fonts/alfont_com_MadinetAlBatv4.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --bg: #f3f6f4;
+  --bg-soft: #ffffff;
+  --primary: #0f7d6f;
+  --primary-deep: #0a5d52;
+  --primary-soft: #e6f2ef;
+  --gold: #c9a227;
+  --gold-soft: #f3e9c4;
+  --ink: #1c2b29;
+  --muted: #6b7c79;
+  --line: #e2e8e6;
+  --danger: #c0392b;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
-  font-family: inherit;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Tajawal', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.arabic {
+  font-family: 'Amiri', serif;
 }

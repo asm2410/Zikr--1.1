@@ -1,0 +1,471 @@
+/* ===== Home ===== */
+.home {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  min-height: 100%;
+  background: linear-gradient(180deg, var(--primary-soft) 0%, var(--bg) 28%);
+}
+
+.home__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.home__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+  font-size: 22px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 20px -8px rgba(15, 125, 111, 0.6);
+}
+
+.home__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.home__subtitle {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.home__date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  line-height: 1.3;
+}
+
+.home__date-hijri {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-deep);
+}
+
+.home__date-greg {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.home__hero {
+  margin: 24px 0 28px;
+  padding: 22px 20px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-deep));
+  color: #fff;
+  box-shadow: 0 20px 40px -18px rgba(10, 93, 82, 0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+.home__hero::after {
+  content: '۞';
+  position: absolute;
+  left: -10px;
+  bottom: -22px;
+  font-size: 120px;
+  opacity: 0.12;
+  line-height: 1;
+}
+
+.home__greeting {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+.home__ayah {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.home__section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 14px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home__section-title::before {
+  content: '';
+  width: 4px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--gold);
+}
+
+.home__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  text-align: right;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  box-shadow: 0 2px 10px -6px rgba(0, 0, 0, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -14px rgba(15, 125, 111, 0.35);
+  border-color: var(--primary);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+.card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card__arabic {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-deep);
+  line-height: 1.2;
+}
+
+.card__target {
+  flex-shrink: 0;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-deep);
+  font-size: 12px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+.card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card__title {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.card__cta {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.home__footer {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Dhikr page ===== */
+.dhikr {
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100%;
+  padding: 16px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(180deg, var(--primary-soft) 0%, var(--bg) 30%);
+}
+
+.dhikr__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.dhikr__back,
+.dhikr__reset {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  color: var(--primary-deep);
+  font-size: 22px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.dhikr__back:active,
+.dhikr__reset:active {
+  transform: scale(0.92);
+  background: var(--primary-soft);
+}
+
+.dhikr__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-deep);
+}
+
+.dhikr__info {
+  text-align: center;
+  padding: 6px 0 2px;
+}
+
+.dhikr__translit {
+  margin: 0 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.dhikr__translation {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* counter — embedded inside the dhikr page */
+.dhikr__counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0 8px;
+}
+
+.ring {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #ffffff 0%, #eef5f3 100%);
+  box-shadow:
+    0 24px 50px -22px rgba(10, 93, 82, 0.45),
+    inset 0 0 0 1px rgba(15, 125, 111, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.3s ease;
+}
+
+.ring--pulse {
+  transform: scale(0.97);
+  box-shadow:
+    0 18px 40px -20px rgba(10, 93, 82, 0.55),
+    inset 0 0 0 2px rgba(15, 125, 111, 0.18);
+}
+
+.ring--done {
+  background: radial-gradient(circle at 50% 40%, #ffffff 0%, #e7f3ef 100%);
+}
+
+.ring__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring__track {
+  fill: none;
+  stroke: rgba(15, 125, 111, 0.12);
+  stroke-width: 14;
+}
+
+.ring__fill {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: drop-shadow(0 0 6px rgba(15, 125, 111, 0.25));
+}
+
+.ring--done .ring__fill {
+  stroke: var(--gold);
+  filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.5));
+}
+
+.ring__tap {
+  position: absolute;
+  inset: 26px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.12s ease;
+}
+
+.ring__tap:active {
+  transform: scale(0.94);
+}
+
+.ring__count {
+  font-size: 84px;
+  font-weight: 800;
+  color: var(--primary-deep);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s ease;
+}
+
+.ring--done .ring__count {
+  color: var(--gold);
+}
+
+.ring__label {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.ring__done-flag {
+  position: absolute;
+  bottom: -8px;
+  background: var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+  animation: flagpop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes flagpop {
+  0% { transform: translateY(8px) scale(0.6); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.dhikr__stats {
+  display: flex;
+  gap: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 22px;
+  border-radius: 16px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  min-width: 130px;
+}
+
+.stat__num {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.dhikr__virtue {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+
+.virtue__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.virtue__tag {
+  flex-shrink: 0;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary-deep);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.virtue__tag--gold {
+  background: var(--gold-soft);
+  color: #8a6d10;
+}
+
+.virtue__text {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.dhikr__hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  padding: 4px 0 0;
+}
+
+@media (max-width: 480px) {
+  .home__grid {
+    grid-template-columns: 1fr;
+  }
+  .ring {
+    width: 240px;
+    height: 240px;
+  }
+  .ring__count {
+    font-size: 68px;
+  }
+}
